@@ -12,7 +12,7 @@ export async function handler(event) {
       role: "system",
       content: "You are a helpful assistant designed to output JSON. Respond with a JSON object following this structure: [ { themeText: a 3 - 7 word sentence that describes the theme or category that you've found, teams: [the names of the teams whose responses fall into this category], teamCount: the number of teams in the teams array } ]"
     }];
-
+       
     // then provide the actual content
     messages.push({
       role: "user",
