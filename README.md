@@ -1,5 +1,5 @@
 ## GroupHints
-Lambda function that provides hints to OpenAI for categorization.
+Lambda function that provides student-generated hints to OpenAI for categorization.
 
 ### File Breakdown:
 
