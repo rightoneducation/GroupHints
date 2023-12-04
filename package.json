@@ -1,0 +1,8 @@
+{
+  "name": "group-hints",
+  "version": "0.0.1",
+  "main": "index.mjs",
+  "dependencies": {
+    "openai": "^4.20.1"
+  }
+}
