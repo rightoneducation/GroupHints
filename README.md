@@ -3,7 +3,7 @@ Lambda function that provides student-generated hints to OpenAI for categorizati
 
 ### File Breakdown:
 
-`index.mjs` - the NodeJs code that is provided to the Lambda function
+`index.mjs` - the Javascript code provided to the NodeJS Lambda function
 
 ### Updating Lambda Function:
 
