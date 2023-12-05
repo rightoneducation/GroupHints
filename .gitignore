@@ -1,3 +1,4 @@
 /node_modules
 group-hints-lambda.zip
 .*
+.DS_Store
