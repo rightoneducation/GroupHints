@@ -35,7 +35,7 @@ Note: `node_modules` and the `.zip` file are listed in `.gitignore`
 ```
 
 Notes:
-1. An example was initially provided but was removed to reduce input token length. It didn't seem to measurably increase precision in the response. 
+1. An example was initially provided but was removed to reduce input token length. It didn't seem to measurably impact precision or consistency in the response. 
 2. We try to stray from outlining specific rules in the prompt but we did need to specify that individual mathematical operations should be considered unique. This is to avoid receiving categories like "advice on mathematical operation" when we care about the distinct operation itself. 
 
 
