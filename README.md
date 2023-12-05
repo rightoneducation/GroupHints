@@ -14,8 +14,8 @@ Lambda function that provides student-generated hints to OpenAI for categorizati
 Note: `node_modules` and the `.zip` file are listed in `.gitignore`
 
 ### Prompt:
-Input tokens: ~300 (varies with length of question and correct answer that is supplied in the prompt for context). 
-Expected output tokens: ~100 
+- Input tokens: ~300 (varies with length of question and correct answer that is supplied in the prompt for context). 
+- Expected output tokens: ~100 
 
 ```
  let messages = [{
