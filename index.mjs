@@ -7,7 +7,7 @@ export async function handler(event) {
     const { hints, questionText, correctAnswer } = JSON.parse(event.body);
     // prompt for open ai
     // first specify the format returned via the role
-    const formattedHints = hints?.map((hint) => `Team ${hint.teamName}: "${hint.rawHint}"`).join("\n");
+    const formattedHints = hints?.map((hint) => `${hint.teamName}: "${hint.rawHint}"`).join("\n");
     console.log(formattedHints);
     let messages = [{
       role: "system",
