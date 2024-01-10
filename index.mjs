@@ -21,6 +21,7 @@ export async function handler(event) {
         Given the following question: ${questionText} that has a correct answer of ${correctAnswer}.
         Please analyze the following student responses from a class and identify any common themes or categories they can be grouped into:
         ${formattedHints}
+        These hints are formatted as follows: ["team name": "hint text"]
         Categorize these responses into distinct themes or patterns you identify. If there is the mention of different mathematical operation (addition/subtraction/simplification), sort each into a separate category. Do not include generalize categories related to math (example: 'advice on mathematical operations' is unacceptable). Include the number of responses that fall into each category as well as the associated team names.
         `
     });
