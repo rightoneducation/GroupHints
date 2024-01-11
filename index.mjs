@@ -7,7 +7,7 @@ export async function handler(event) {
     const { hints, questionText, correctAnswer } = JSON.parse(event.body);
     // prompt for open ai
     // first specify the format returned via the role
-    const formattedHints = hints?.map((hint) => `${hint.teamName}: "${hint.rawHint}"`).join("\n");
+    const formattedHints = hints?.map((hint) => `${hint.teamName}: ${hint.rawHint}`).join("\n");
     console.log(formattedHints);
     let messages = [{
       role: "system",
@@ -18,14 +18,19 @@ export async function handler(event) {
     messages.push({
       role: "user",
       content: `
-        Given the following question: ${questionText} that has a correct answer of ${correctAnswer}.
-        Please analyze the following student responses from a class and identify any common themes or categories they can be grouped into:
+        Given this question: ${questionText} with a correct answer of ${correctAnswer}.
+        Analyze student responses from a class and identify any common themes or categories they can be grouped into.
+        Each response has the following format: team name: "hint text".
+        The responses are here:
         ${formattedHints}
-        These hints are formatted as follows: ["team name": "hint text"]
-        Categorize these responses into distinct themes or patterns you identify. If there is the mention of different mathematical operation (addition/subtraction/simplification), sort each into a separate category. Do not include generalize categories related to math (example: 'advice on mathematical operations' is unacceptable). Include the number of responses that fall into each category as well as the associated team names.
+        Categorize these responses into distinct themes or patterns you identify. Do not include the word theme or pattern in this category. If there is the mention of different mathematical operation (addition/subtraction/simplification), sort each into a separate category. Do not include generalize categories related to math (example: 'advice on mathematical operations' is unacceptable). 
+        If there is only one answer provided, just return its hint text as a single category. Do not append any text to it. Only do this for cases with one answer.
+        Otherwise, categories should not match submitted responses exactly. They should be a generalization of the responses.
+        Do not provide any content outside of the requested JSON object, this is of the utmost importance.
+        Include the number of responses that fall into each category as well as the associated team names. 
         `
     });
-
+    console.log(messages);
     try {
         // Make the API call to OpenAI
         const completion = await openai.chat.completions.create({
