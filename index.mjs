@@ -34,7 +34,7 @@ export async function handler(event) {
     try {
         // Make the API call to OpenAI
         const completion = await openai.chat.completions.create({
-            model: 'gpt-4', 
+            model: 'gpt-4o', 
             messages: messages,
         });
         // Return the response
