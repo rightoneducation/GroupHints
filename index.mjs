@@ -1,9 +1,10 @@
 import { OpenAI } from "openai";
+import { getOpenAIKey } from "./util/loadsecrets.mjs";
 import { zodResponseFormat } from 'openai/helpers/zod';
 import { z } from 'zod';
 
 export async function handler(event) {
-    const openai = new OpenAI(process.env.OPENAI_API_KEY);
+    const openai = new OpenAI({ apiKey: await getOpenAIKey() });
 
     // Parse input data from the event object
     const { hints, questionText, correctAnswer } = JSON.parse(event.body);
